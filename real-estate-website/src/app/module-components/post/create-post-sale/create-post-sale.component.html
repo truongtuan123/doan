@@ -1,0 +1,246 @@
+<div class="view">
+    <div class="row remove-margin">
+        <div class="col-lg-2 col-md-3"></div>
+        <div class="col-lg-8 col-md-6">
+            <!-- Material form login -->
+            <mdb-card>
+
+                <mdb-card-header class="info-color white-text text-center py-4">
+                    <h5>
+                        <strong>Thông Tin Bất Động Sản</strong>
+                    </h5>
+                </mdb-card-header>
+
+
+                <!--Card content-->
+                <mdb-card-body class="px-lg-5 pt-0">
+
+                    <!-- Form -->
+                    <form [formGroup]="postSaleForm" (ngSubmit)="doPostSale()" class="text-center" style="color: #757575;">
+
+                        <!-- <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div> -->
+                        <div class="form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="demand" class="browser-default custom-select">
+                                        <option [ngValue]="null">Nhu Cầu</option>
+                                        <option value="Cần Bán">Cần Bán</option>
+                                        <option value="Cần Cho Thuê">Cần Cho Thuê</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="kind" class="browser-default custom-select">
+                                        <option [ngValue]="null">Loại Hình</option>
+                                        <option value="Căn Hộ Chung Cư">Căn Hộ Chung Cư</option>
+                                        <option value="Nhà Biệt Thự">Nhà Biệt Thự</option>
+                                        <option value="Cửa Hàng Kho Xưởng">Cửa Hàng Kho Xưởng</option>
+                                        <option value="Đất Nền Dự Án">Đất Nền Dự Án</option>
+                                        <option value="Đất Thổ Cư">Đất Thổ Cư</option>
+                                        <option value="Đất Vườn">Đất Vườn</option>
+                                        <option value="Phòng Trọ">Phòng Trọ</option>
+                                        <option value="Văn Phòng">Văn Phòng</option>
+                                        <option value="Mặt Bằng Kinh Doanh">Mặt Bằng Kinh Doanh</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="price" class="browser-default custom-select">
+                                        <option [ngValue]="null">Mức Giá</option>
+                                        <option value="0 - 20 Triệu">0 - 20 Triệu</option>
+                                        <option value="20 Triệu - 50 Triệu">20 Triệu - 50 Triệu</option>
+                                        <option value="50 Triệu - 100 Triệu">50 Triệu - 100 Triệu</option>
+                                        <option value="100 Triệu - 300 Triệu">100 Triệu - 300 Triệu</option>
+                                        <option value="300 Triệu - 500 Triệu">300 Triệu - 500 Triệu</option>
+                                        <option value="500 Triệu - 1 Tỷ">500 Triệu - 1 Tỷ</option>
+                                        <option value="1 Tỷ - 5 Tỷ">1 Tỷ - 5 Tỷ</option>
+                                        <option value="5 Tỷ - 10 Tỷ">5 Tỷ - 10 Tỷ</option>
+                                        <option value="Trên 10 Tỷ">Trên 10 Tỷ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="square" type="number" id="square" class="form-control"
+                                        mdbInputDirective [errorMessage]="'Required'" [validateSuccess]="false">
+                                    <label for="square">Diện Tích(m<sup>2</sup>)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="province" class="browser-default custom-select" (change)=onProvinceSelected($event)>
+                                        <option [ngValue]="null">Tỉnh/Thành Phố</option>
+                                        <option *ngFor="let province of listProvince" [value]="province.Id">
+                                            {{province.Type+' '+province.Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="district" class="browser-default custom-select" (change)=onDistrictSelected($event)>
+                                        <option [ngValue]="null">Quận/Huyện</option>
+                                        <option *ngFor="let district of listDistrict" [value]="district.Id">
+                                            {{district.Type+' '+district.Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="ward" class="browser-default custom-select">
+                                        <option [ngValue]="null">Phường Xã</option>
+                                        <option *ngFor="let ward of listWard" [value]="ward.Type+' '+ward.Name">
+                                            {{ward.Type+' '+ward.Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="direction" class="browser-default custom-select">
+                                        <option [ngValue]="null">Hướng Nhà</option>
+                                        <option value="Đông">Hướng Đông</option>
+                                        <option value="Tây">Hướng Tây</option>
+                                        <option value="Nam">Hướng Nam</option>
+                                        <option value="Bắc">Hướng Bắc</option>
+                                        <option value="Đông Bắc">Hướng Đông - Bắc</option>
+                                        <option value="Đông Nam">Hướng Đông - Nam</option>
+                                        <option value="Tây Bắc">Hướng Tây - Bắc</option>
+                                        <option value="Tây Nam">Hướng Tây - Nam</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="bedroom" class="browser-default custom-select">
+                                        <option [ngValue]="null">Số Phòng Ngủ</option>
+                                        <option value="1">1 Phòng Ngủ</option>
+                                        <option value="2">2 Phòng Ngủ</option>
+                                        <option value="3">3 Phòng Ngủ</option>
+                                        <option value="4">4 Phòng Ngủ</option>
+                                        <option value="5">5 Phòng Ngủ</option>
+                                        <option value="Trên 5">Trên 5 Phòng Ngủ</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="bathroom" class="browser-default custom-select">
+                                        <option [ngValue]="null">Số Nhà Tắm</option>
+                                        <option value="1">1 Nhà Tắm</option>
+                                        <option value="2">2 Nhà Tắm</option>
+                                        <option value="3">3 Nhà Tắm</option>
+                                        <option value="4">4 Nhà Tắm</option>
+                                        <option value="5">5 Nhà Tắm</option>
+                                        <option value="Trên 5">Trên 5 Nhà Tắm</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="floor" class="browser-default custom-select">
+                                        <option [ngValue]="null">Số Tầng</option>
+                                        <option value="1">1 Tầng</option>
+                                        <option value="2">2 Tầng</option>
+                                        <option value="3">3 Tầng</option>
+                                        <option value="4">4 Tầng</option>
+                                        <option value="5">5 Tầng</option>
+                                        <option value="Trên 5">Trên 5 Tầng</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="title" type="text" id="title" class="form-control"
+                                        mdbInputDirective [errorMessage]="'Required'" [validateSuccess]="false">
+                                    <label for="title">Tiêu Đề</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <!-- First name -->
+                                <div class="md-form align-text-left">
+                                    <textarea formControlName="description" type="text" id="description" class="md-textarea form-control"
+                                        mdbInputDirective [errorMessage]="'Required'" [validateSuccess]="false"></textarea>
+                                    <label for="description">Nội Dung(Hoặc Thông Tin Thêm)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="sellerName" type="text" id="sellerName" class="form-control"
+                                        mdbInputDirective [errorMessage]="'Required'" [validateSuccess]="false">
+                                    <label for="sellerName">Họ Tên Người Bán</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="sellerPhoneNumber" type="text" id="sellerPhoneNumber" class="form-control"
+                                        mdbInputDirective [errorMessage]="'Required'" [validateSuccess]="false">
+                                    <label for="sellerPhoneNumber">Số Điện Thoại</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="sellerEmail" type="email" id="sellerEmail" class="form-control"
+                                        mdbInputDirective [errorMessage]="'Invalid Email'" [validateSuccess]="false">
+                                    <label for="sellerEmail">Email</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sign in button -->
+                        <div class="form-row">
+                            <div class="col">
+                                <button mdbBtn color="danger" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0"
+                                    mdbWavesEffect type="button">HỦY</button>
+
+                            </div>
+                            <div class="col">
+                                <button [disabled]="postSaleForm.invalid" mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0"
+                                    mdbWavesEffect type="submit">ĐĂNG TIN</button>
+                            </div>
+                        </div>
+                        <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+                    </form>
+                    <!-- Form -->
+
+                </mdb-card-body>
+
+            </mdb-card>
+            <!-- Material form login -->
+        </div>
+    </div>
+</div>

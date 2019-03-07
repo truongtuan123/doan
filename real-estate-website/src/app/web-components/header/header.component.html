@@ -1,0 +1,59 @@
+<header class="h-100">
+  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark indigo scrolling-navbar intro-fixed-nav" [containerInside]="false">
+      <mdb-navbar-brand class="align-center">
+          <a class="navbar-brand" routerLink="/home">
+            <img src="../../../assets/page-images/logo.png" class="img-fluid" alt="Responsive image" style="width: 70%; height: 70%">
+          </a>
+      </mdb-navbar-brand>
+      <links>
+          <ul class="navbar-nav mr-auto padding-header-navbar">
+              <li routerLinkActive="active" class="nav-item waves-light" mdbWavesEffect>
+                  <a routerLink="/home" class="nav-link">Trang Chủ <span class="sr-only">(current)</span></a>
+              </li>
+              <li routerLinkActive="active" class="nav-item waves-light" mdbWavesEffect>
+                  <a routerLink="/category/buy" class="nav-link">Tin Mua</a>
+              </li>
+              <li routerLinkActive="active" class="nav-item waves-light" mdbWavesEffect>
+                  <a routerLink="/category/sale" class="nav-link">Tin Bán</a>
+              </li>
+              <li routerLinkActive="active" class="nav-item waves-light" mdbWavesEffect>
+                  <a routerLink="/category/project" class="nav-link">Dự Án</a>
+              </li>
+              <!-- <li class="nav-item waves-light" mdbWavesEffect>
+                  <a class="nav-link">Tin Tức</a>
+              </li>
+              <li class="nav-item waves-light" mdbWavesEffect>
+                  <a class="nav-link">Hỗ Trợ</a>
+              </li> -->
+              <li routerLinkActive="active" class="nav-item waves-light" mdbWavesEffect>
+                  <a routerLink="/post/create/buy" class="nav-link">Đăng Tin<i class="fa fa-plus" aria-hidden="true"></i></a>
+              </li>
+          </ul>
+          <ul *ngIf="checkExpired()" class="navbar-nav padding-header-navbar">
+              <div class="row justify-content-center">
+                <li class="nav-item">
+                  <a routerLink="/login" class="nav-link"><button mdbBtn type="button" color="default" style="border-radius:30px" mdbWavesEffect>Đăng Nhập<i class="fa fa-sign-in" aria-hidden="true"></i></button></a>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="/register" class="nav-link"><button mdbBtn type="button" color="default" style="border-radius:30px" mdbWavesEffect>Đăng Kí<i class="fa fa-user-plus" aria-hidden="true"></i></button></a>
+              </li>
+              </div>
+              
+          </ul>
+          <ul *ngIf="!checkExpired()" class="navbar-nav padding-header-navbar">
+                <div class="row justify-content-center">
+                  <li class="nav-item">
+                    <a routerLink="/user/profile/information" (click)=goToProfile() class="nav-link"><button mdbBtn type="button" color="info" style="border-radius:30px" mdbWavesEffect><i class="fa fa-user-o" aria-hidden="true"></i></button></a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="logout()" class="nav-link"><button mdbBtn type="button" color="default" style="border-radius:30px" mdbWavesEffect><i class="fa fa-sign-out" aria-hidden="true"></i></button></a>
+                </li>
+                </div>
+                
+            </ul>
+      </links>
+      
+  </mdb-navbar>
+  
+</header>
+

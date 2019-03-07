@@ -1,0 +1,93 @@
+<div class="remove-margin">
+  <div class="container pb-5">
+    <h4 style="text-align: center;font-weight: bold;">
+        <mdb-badge pill="true" default="true"><i class="fa fa-search" aria-hidden="true"></i> Có {{length}} tin đăng {{demand}}</mdb-badge>
+        
+        
+    </h4>
+    <h4 style="text-align: center;font-weight: bold;">
+        <mdb-badge info="true"><i class="fa fa-building-o" aria-hidden="true"></i></mdb-badge>
+        
+        {{kind}}
+    </h4>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let item of listItem" class="col-lg-4 col-md-6" style="width: auto !important; padding: 0px 20px 50px 20px">
+        <!-- Card -->
+        <mdb-card>
+          <div *ngIf="!isBuyItem" class="view rgba-white-slight waves-light" mdbWavesEffect>
+            <!-- Card img -->
+            <mdb-card-img src={{item.photos[0]}} alt="Card image cap"></mdb-card-img>
+            <a (click)="goToPostDetail(item._id)">
+              <div class="mask"></div>
+            </a>
+          </div>
+          <div *ngIf="isBuyItem" class="view rgba-white-slight waves-light" mdbWavesEffect>
+              <!-- Card img -->
+              <mdb-card-img src={{item.thumbnail}} alt="Card image cap"></mdb-card-img>
+              <a (click)="goToPostDetail(item._id)">
+                <div class="mask"></div>
+              </a>
+            </div>
+          <!--Card content-->
+          <mdb-card-body>
+            <!--Title-->
+            <mdb-card-title>
+              <div class="container">
+                <div class="row" style="margin: 0 auto">
+                  <div class="col-lg-12">
+                    <h5 style="font-weight: bold; text-align: center">
+                      {{item.title}}
+                    </h5>
+                  </div>
+                </div>
+                <div class="row" style="padding: 10px">
+                    <div style="text-align: center" class="col-lg-12">
+                        <label>
+                          <mdb-badge default="true">
+                              <i class="fa fa-building-o" aria-hidden="true"></i> </mdb-badge>
+                          Loại Hình: {{item.kind}}
+                        </label>
+    
+                      </div>
+                  <div style="text-align: center" class="col-lg-12">
+                    <label>
+                      <mdb-badge default="true">
+                        <i class="fa fa-money" aria-hidden="true"></i>
+                      </mdb-badge>
+                      Mức Giá: {{item.price}}
+                    </label>
+
+                  </div>
+                  <div style="text-align: center" class="col-lg-12">
+                    <label>
+                      <mdb-badge default="true">
+                        <i class="fa fa-square-o" aria-hidden="true"></i> </mdb-badge>
+                      Diện Tích: {{item.square}} m<sup>2</sup>
+                    </label>
+
+                  </div>
+                  
+                  <div style="text-align: center;padding-top: 10px" class="col-lg-12">
+                    <label>
+                      <mdb-badge default="true">
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                      </mdb-badge>
+                      Địa Chỉ: {{item.ward}} - {{item.district}} - {{item.province}}
+                    </label>
+
+                  </div>
+                </div>
+              </div>
+            </mdb-card-title>
+
+          </mdb-card-body>
+        </mdb-card>
+        <!-- Card -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- <app-footer></app-footer> -->

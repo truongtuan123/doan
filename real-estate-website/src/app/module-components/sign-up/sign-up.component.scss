@@ -1,0 +1,27 @@
+.view {
+    background: url("../../../assets/page-images/login-background.jpg")no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.remove-margin {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 200px;
+}
+
+.align-text-left {
+    text-align: left;
+}
+
+.alert-danger {
+    color: red;
+    background-color: white;
+    border-color: white
+}
+
+.alert-success {
+    color: green;
+    background-color: white;
+    border-color: white
+}

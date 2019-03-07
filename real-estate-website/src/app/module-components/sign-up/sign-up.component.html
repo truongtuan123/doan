@@ -1,0 +1,81 @@
+<div class="view">
+  <div class="row remove-margin">
+    <div class="col-lg-4 col-md-3"></div>
+    <div class="col-lg-4 col-md-6">
+      <!-- Material form register -->
+      <mdb-card>
+
+        <mdb-card-header class="info-color white-text text-center py-4">
+          <h5>
+            <strong>Thông Tin Cá Nhân</strong>
+          </h5>
+        </mdb-card-header>
+
+        <!--Card content-->
+        <mdb-card-body class="px-lg-5 pt-0">
+
+          <!-- Form -->
+          <form [formGroup]="signUpForm" (ngSubmit)="register()" class="text-center" style="color: #757575;">
+
+            <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+
+            <div class="form-row">
+              <div class="col">
+                <!-- First name -->
+                <div class="md-form align-text-left" style="padding-bottom: 20px">
+                  <input formControlName="firstname" type="text" id="materialRegisterFormFirstName" class="form-control"
+                    mdbInputDirective [errorMessage]="'Invalid FirstName'" [validateSuccess]="false">
+                  <label for="materialRegisterFormFirstName">Họ</label>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Last name -->
+                <div class="md-form align-text-left" style="padding-bottom: 20px">
+                  <input formControlName="lastname" type="email" id="materialRegisterFormLastName" class="form-control"
+                    mdbInputDirective [errorMessage]="'Invalid LastName'" [validateSuccess]="false">
+                  <label for="materialRegisterFormLastName">Tên</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- E-mail -->
+            <div class="md-form mt-0 align-text-left" style="padding-bottom: 20px">
+              <input formControlName="email" type="email" id="materialRegisterFormEmail" class="form-control"
+                mdbInputDirective [errorMessage]="'Invalid Email'" [validateSuccess]="false">
+              <label for="materialRegisterFormEmail">E-mail</label>
+            </div>
+
+            <!-- Password -->
+            <div class="md-form align-text-left">
+              <input formControlName="password" type="password" id="materialRegisterFormPassword" class="form-control"
+                aria-describedby="materialRegisterFormPasswordHelpBlock" mdbInputDirective [errorMessage]="'Invalid Password'"
+                [validateSuccess]="false">
+              <label for="materialRegisterFormPassword">Mật Khẩu</label>
+            </div>
+
+            <!-- Sign up button -->
+            <button [disabled]="signUpForm.invalid" mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0"
+              mdbWavesEffect type="submit">Đăng Ký</button>
+
+            <p>Đã có tài khoản?
+              <a routerLink="/login">Đăng nhập ngay</a>
+            </p>
+
+            <hr>
+
+            <!-- Terms of service -->
+            <p>Bằng việc nhấn
+              <em>Đăng Ký</em> bạn đã đồng ý với
+              <a href="#" target="_blank">điều khoản dịch vụ của 4.0 LAND</a></p>
+
+          </form>
+          <!-- Form -->
+
+        </mdb-card-body>
+
+      </mdb-card>
+      <!-- Material form register -->
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,25 @@
+.view {
+    background: url("../../../assets/page-images/background.jpg")no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.btn-block {
+    width: auto;
+}
+
+.form-align-center {
+    margin: 0 auto !important;
+}
+
+button.btn-align-center {
+    margin: 0 auto !important;
+}
+
+@media (min-width: 993px) {
+
+    .form-width-change {
+        width: 800px;
+    }
+}
+

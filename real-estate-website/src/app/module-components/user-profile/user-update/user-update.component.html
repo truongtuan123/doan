@@ -1,0 +1,96 @@
+<div class="view">
+    <div class="row remove-margin">
+        <div class="col-lg-3 col-md-3"></div>
+        <div class="col-lg-6 col-md-6">
+            <!-- Material form login -->
+            <mdb-card>
+
+                <mdb-card-header class="info-color white-text text-center py-4">
+                    <h5>
+                        <strong>Cập Nhật Thông Tin</strong>
+                    </h5>
+                </mdb-card-header>
+
+
+                <!--Card content-->
+                <mdb-card-body class="px-lg-5 pt-0">
+
+                    <!-- Form -->
+                    <form [formGroup]="updateForm" (ngSubmit)="doUpdateUserInformation()" class="text-center" style="color: #757575;">
+
+                        <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+                        <div class="form-row">
+                            <div class="col">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <label for="materialRegisterFormFirstName"><b><i class="fa fa-user" aria-hidden="true"></i>
+                                            Họ Tên:</b> {{fullname}} (Can not modify)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                    <label for="materialRegisterFormFirstName"><b><i class="fa fa-envelope" aria-hidden="true"></i>
+                                            Email</b>: <mdb-badge style="font-size: 15px" color="red">{{email}}</mdb-badge> (Can not modify)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        
+                        <div id="birthday" class="md-form align-text-left">
+                                <p style="margin-bottom: 0px" for="materialRegisterFormFirstName"><b><i class="fa fa-calendar" aria-hidden="true"></i>
+                                    Ngày Sinh</b>:</p>
+                            <input formControlName="birthday" type="date" id="materialLoginFormPassword" class="form-control" [errorMessage]="'Required'" [validateSuccess]="false" mdbInputDirective>
+                            
+                        </div>
+
+                        <!-- Password -->
+                        <div class="md-form align-text-left">
+                            <p style="margin-bottom: 0px" for="materialRegisterFormFirstName"><b><i class="fa fa-venus" aria-hidden="true"></i>
+                                    Giới Tính</b>:</p>
+                            <select formControlName="gender" class="browser-default custom-select">
+                                <option [ngValue]="null">Chọn Giới Tính</option>
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Giới tính khác">Giới Tính Khác</option>
+                            </select>
+                        </div>
+
+                         <!-- Password -->
+                         <div class="md-form align-text-left">
+                                <input formControlName="phoneNumber" type="tel"  id="materialLoginFormPassword" class="form-control" [errorMessage]="'Required'" [validateSuccess]="false" mdbInputDirective>
+                                <label for="materialLoginFormEmail"><i class="fa fa-phone-square" aria-hidden="true"></i> Số Điện Thoại</label>
+                            </div>
+
+                            <!-- Password -->
+                         <div class="md-form align-text-left">
+                                <input formControlName="address" type="text" id="materialLoginFormPassword" class="form-control" [errorMessage]="'Required'" [validateSuccess]="false" mdbInputDirective>
+                                <label for="formphone"><i class="fa fa-address-card" aria-hidden="true"></i> Địa Chỉ</label>
+                            </div>
+
+                        <!-- Sign in button -->
+                        <div class="form-row">
+                            <div class="col">
+                                <button mdbBtn color="danger" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0"
+                                    mdbWavesEffect type="button" (click)="cancelUpdate()">HỦY</button>
+
+                            </div>
+                            <div class="col">
+                                <button [disabled]="updateForm.invalid" mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0"
+                                    mdbWavesEffect type="submit">CẬP NHẬT</button>
+                            </div>
+                        </div>
+
+                    </form>
+                    <!-- Form -->
+
+                </mdb-card-body>
+
+            </mdb-card>
+            <!-- Material form login -->
+        </div>
+    </div>
+</div>

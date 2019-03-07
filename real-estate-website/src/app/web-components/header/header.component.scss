@@ -1,0 +1,35 @@
+.navbar {
+    z-index: 1;
+}
+
+.nav-item.waves-light{
+    padding: 0 5px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.nav-link {
+    font-weight: 400
+}
+
+.border-radius-button {
+    border-radius: 30px;
+}
+
+@media (min-width: 993px) {
+    .padding-header-navbar {
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .padding-header-navbar {
+        padding-top: 10px;
+    }
+    ul.float-left{
+        display: flex;
+        float: left!important;
+    }
+}

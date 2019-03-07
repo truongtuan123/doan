@@ -1,0 +1,311 @@
+<!-- Sidebar -->
+<div class="container" style="padding-top: 150px;padding-top: 100px;">
+    <div class="list-group list-group-flush">
+        <div *ngIf="owner" class="row">
+            <div class="col">
+                <mdb-card>
+                    <mdb-card-header class="danger-color white-text text-center py-4">
+                        <h5 style="font-size: 25px">
+                            <strong><b>{{title}}</b></strong>
+                        </h5>
+                    </mdb-card-header>
+
+                    <!--Card content-->
+                    <mdb-card-body class="px-lg-5 pt-0">
+                        <!-- Form -->
+                        <form class="text-center" style="color: #757575;">
+
+                            <div class="form-row">
+                                <div class="col-md-12 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-user" aria-hidden="true"></i>
+                                                Chủ Đầu Tư:</b> {{owner}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-envelope"
+                                                    aria-hidden="true"></i> Email Liên Hệ</b>: <mdb-badge style="font-size: 15px"
+                                                color="red">{{email}}</mdb-badge></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-phone-square"
+                                                    aria-hidden="true"></i> Số Điện Thoại:</b> {{phone}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-newspaper-o"
+                                                    aria-hidden="true"></i> Loại Tin:</b> <mdb-badge style="font-size: 15px"
+                                                    color="red">{{demand}}</mdb-badge></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-building-o"
+                                                    aria-hidden="true"></i> Loại Hình:</b> {{kind}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-money"
+                                                    aria-hidden="true"></i> Mức Giá:</b> {{price}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b> Diện Tích:</b> {{square}}m<sup>2</sup></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-address-card"
+                                                    aria-hidden="true"></i> Địa Chỉ:</b> {{address}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Form -->
+
+                    </mdb-card-body>
+
+                </mdb-card>
+            </div>
+        </div>
+        <div *ngIf="!owner" class="row">
+            <div class="col">
+                <mdb-card>
+                    <mdb-card-header class="danger-color white-text text-center py-4">
+                        <h5 style="font-size: 25px">
+                            <strong><b>{{title}}</b></strong>
+                        </h5>
+                    </mdb-card-header>
+
+                    <!--Card content-->
+                    <mdb-card-body class="px-lg-5 pt-0">
+                        <!-- Form -->
+                        <form class="text-center" style="color: #757575;">
+
+                            <div class="form-row">
+                                <div class="col-md-12 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-user" aria-hidden="true"></i>
+                                                Họ Tên Người Bán(Mua):</b> {{fullname}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-envelope"
+                                                    aria-hidden="true"></i> Email Liên Hệ</b>: <mdb-badge style="font-size: 15px"
+                                                color="red">{{email}}</mdb-badge></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-phone-square"
+                                                    aria-hidden="true"></i> Số Điện Thoại:</b> {{phone}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-newspaper-o"
+                                                    aria-hidden="true"></i> Loại Tin:</b> {{demand}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-building-o"
+                                                    aria-hidden="true"></i> Loại Hình:</b> {{kind}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-money"
+                                                    aria-hidden="true"></i> Mức Giá:</b> {{price}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b> Diện Tích:</b> {{square}}m<sup>2</sup></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-address-card"
+                                                    aria-hidden="true"></i> Địa Chỉ:</b> {{address}}</label>
+                                    </div>
+                                </div>
+                                <div *ngIf="direction" class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-compass"
+                                                    aria-hidden="true"></i> Hướng Nhà:</b> {{direction}}</label>
+                                    </div>
+                                </div>
+                                <div *ngIf="bedroom" class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-bed" aria-hidden="true"></i>
+                                                Số Phòng Ngủ:</b> {{bedroom}}</label>
+                                    </div>
+                                </div>
+                                <div *ngIf="bathroom" class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-bath" aria-hidden="true"></i>
+                                                Số Nhà Tắm:</b> {{bathroom}}</label>
+                                    </div>
+                                </div>
+                                <div *ngIf="floor" class="col-md-6 col-sm-12 border-bottom">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-building-o"
+                                                    aria-hidden="true"></i> Số Tầng:</b> {{floor}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px; height: 100px;">
+                                        <label for="materialRegisterFormFirstName"><b><i class="fa fa-info-circle"
+                                                    aria-hidden="true"></i> Thông Tin Thêm:</b> {{body}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Form -->
+
+                    </mdb-card-body>
+
+                </mdb-card>
+            </div>
+        </div>
+        <div *ngIf="owner" class="row pt-4">
+            <div class="col">
+                <mdb-card>
+                    <mdb-card-header class="info-color white-text text-center py-4">
+                        <h5>
+                            <strong><b>Giới Thiệu Chi Tiết Dự Án</b></strong>
+                        </h5>
+                    </mdb-card-header>
+
+                    <!--Card content-->
+                    <mdb-card-body class="px-lg-5 pt-0">
+                        <!-- Form -->
+                        <form class="text-center" style="color: #757575;">
+
+                            <div class="form-row">
+                                <div class="col-md-12 col-sm-12">
+                                    <!-- First name -->
+                                    <div class="md-form align-text-left" style="padding-bottom: 20px; height: 100px;">
+                                        <label for="materialRegisterFormFirstName">{{body}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Form -->
+
+                    </mdb-card-body>
+
+                </mdb-card>
+            </div>
+        </div>
+        <div *ngIf="photos" class="row pt-4">
+            <div class="col">
+                <mdb-card>
+                    <mdb-card-header class="info-color white-text text-center py-4">
+                        <h5>
+                            <strong><b>Một Số Hình Ảnh Chi Tiết</b></strong>
+                        </h5>
+                    </mdb-card-header>
+
+                    <!--Card content-->
+                    <mdb-card-body class="px-lg-5 pt-4">
+                        <div style="padding-bottom: 30px; text-align: center;" >
+                            <!--Carousel Wrapper-->
+                            <mdb-carousel [isControls]="true" [animation]="'slide'">
+                                <!--First slide-->
+                                <mdb-carousel-item *ngFor="let photo of photos">
+                                    <img class="d-block w-100" src={{photo}}
+                                        alt="detail images">
+                                </mdb-carousel-item>
+                                <!--/First slide-->
+                            </mdb-carousel>
+                            <!--/.Carousel Wrapper-->
+                        </div>
+                    </mdb-card-body>
+
+                </mdb-card>
+            </div>
+        </div>
+        <div *ngIf="videos" class="row pt-4">
+            <div class="col">
+                <mdb-card>
+                    <mdb-card-header class="info-color white-text text-center py-4">
+                        <h5>
+                            <strong><b>Một Số Video Về Dự Án</b></strong>
+                        </h5>
+                    </mdb-card-header>
+
+                    <!--Card content-->
+                    <mdb-card-body class="px-lg-5 pt-4">
+                        <div style="padding-bottom: 30px; text-align: center;" >
+                            <!--Carousel Wrapper-->
+                                <video *ngFor="let video of videos" class="d-block w-100 pb-3" controls >
+                                    <source src={{video}} type="video/mp4">
+                                </video>
+                            <!--/.Carousel Wrapper-->
+                        </div>
+                    </mdb-card-body>
+
+                </mdb-card>
+            </div>
+        </div>
+        <div *ngIf="designs" class="row pt-4">
+            <div class="col">
+                <mdb-card>
+                    <mdb-card-header class="info-color white-text text-center py-4">
+                        <h5>
+                            <strong><b>Bản Đồ Qui Hoạch/Thiết Kế</b></strong>
+                        </h5>
+                    </mdb-card-header>
+
+                    <!--Card content-->
+                    <mdb-card-body class="px-lg-5 pt-4">
+                        <div style="padding-bottom: 30px; text-align: center;" >
+                            <!--Carousel Wrapper-->
+                            <mdb-carousel [isControls]="true" [animation]="'slide'">
+                                <!--First slide-->
+                                <mdb-carousel-item *ngFor="let design of designs">
+                                    <img class="d-block w-100" src={{design}}
+                                        alt="detail images">
+                                </mdb-carousel-item>
+                                <!--/First slide-->
+                            </mdb-carousel>
+                            <!--/.Carousel Wrapper-->
+                        </div>
+                    </mdb-card-body>
+
+                </mdb-card>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sidebar -->

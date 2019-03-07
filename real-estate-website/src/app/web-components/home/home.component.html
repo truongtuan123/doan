@@ -1,0 +1,110 @@
+  <!-- Main -->
+  <div class="view">
+      <div class="full-bg-img">
+          <div class="mask rgba-black-light flex-center">
+              <div class="container text-center white-text">
+                  <div class="white-text text-center wow fadeInUp">
+                    <!-- Default form  -->
+
+                    <h2 style="color: #ecf0f1" class="h2 mb-4">
+                        <mdb-badge pill="true" color="indigo">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            Tìm Kiếm Bất Động Sản
+                        </mdb-badge>
+                    </h2>
+                      <form [formGroup]="searchForm" (ngSubmit)="goToResult()" class="text-center border border-light p-5 form-width-change form-align-center">                    
+                        
+                          <div class="row">
+                            <div class="col-md-6">   
+                                <select formControlName="demand" class="browser-default custom-select mb-2" (change)=onDemandSelected($event)>
+                                    <option [ngValue]="null">Nhu Cầu</option>
+                                    <option value="Cần Mua">Tin Mua</option>
+                                    <option value="Cần Bán">Tin Bán</option>
+                                    <option value="Dự Án">Tin Dự Án</option>
+                                </select>
+                            </div>
+                            <div *ngIf="isProject" class="col-md-6">   
+                                <select formControlName="kind" class="browser-default custom-select">
+                                    <option [ngValue]="null">Loại Dự Án</option>
+                                    <option value="Căn Hộ Chung Cư">Căn Hộ Chung Cư</option>
+                                    <option value="Cao Ốc Văn Phòng">Cao Ốc Văn Phòng</option>
+                                    <option value="Trung Tâm Thương Mại">Trung Tâm Thương Mại</option>
+                                    <option value="Khu Đô Thị Mới">Khu Đô Thị Mới</option>
+                                    <option value="Khu Phức Hợp">Khu Phức Hợp</option>
+                                    <option value="Nhà Ở Xã Hội">Nhà Ở Xã Hội</option>
+                                    <option value="Khu Nghỉ Dưỡng, Sinh Thái">Khu Nghỉ Dưỡng, Sinh Thái</option>
+                                    <option value="Khu Công Nghiệp">Khu Công Nghiệp</option>
+                                    <option value="Biệt Thự Liền Kề">Biệt Thự Liền Kề</option>
+                                </select>
+                            </div>
+                            <div *ngIf="!isProject" class="col-md-6">   
+                                <select formControlName="kind" class="browser-default custom-select">
+                                    <option [ngValue]="null">Loại Hình</option>
+                                    <option value="Căn Hộ Chung Cư">Căn Hộ Chung Cư</option>
+                                    <option value="Nhà Biệt Thự">Nhà Biệt Thự</option>
+                                    <option value="Cửa Hàng Kho Xưởng">Cửa Hàng Kho Xưởng</option>
+                                    <option value="Đất Nền Dự Án">Đất Nền Dự Án</option>
+                                    <option value="Đất Thổ Cư">Đất Thổ Cư</option>
+                                    <option value="Đất Vườn">Đất Vườn</option>
+                                    <option value="Phòng Trọ">Phòng Trọ</option>
+                                    <option value="Văn Phòng">Văn Phòng</option>
+                                    <option value="Mặt Bằng Kinh Doanh">Mặt Bằng Kinh Doanh</option>
+                                </select>
+                            </div>
+                          </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                    <select formControlName="province" class="browser-default custom-select mb-2" (change)=onProvinceSelected($event)>
+                                        <option  [ngValue]="null">Tỉnh/Thành Phố</option>
+                                        <option *ngFor="let province of listProvince" [value]="province.Id">
+                                            {{province.Type+' '+province.Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select formControlName="district" class="browser-default custom-select mb-2">
+                                        <option [ngValue]="null">Quận/Huyện</option>
+                                        <option *ngFor="let district of listDistrict" [value]="district.Id">
+                                                {{district.Type+' '+district.Name}}
+                                            </option>
+                                    </select>
+                                </div>
+                                <!-- <div class="col-md-4">
+                                    <select formControlName="ward" class="browser-default custom-select mb-2">
+                                        <option [ngValue]="null">Phường/Xã</option>
+                                        <option *ngFor="let ward of listWard" [value]="ward.Name">
+                                                {{ward.Type+' '+ward.Name}}
+                                            </option>
+                                    </select>
+                                </div> -->
+                              </div>     
+              
+                        <!-- Search button -->
+                        <button mdbBtn size="md" color="default" block="true" class="my-4 btn-align-center" type="submit">Tìm Kiếm</button>
+                      </form>
+                        
+                        <!-- Default form -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    <!-- /.Main -->
+
+<!--Main Layout-->
+<main class="text-center py-5">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+  
+                <p align="justify">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+            </div>
+        </div>
+    </div>
+  
+  </main>
+  <!--Main Layout-->
+
+  <app-footer></app-footer>

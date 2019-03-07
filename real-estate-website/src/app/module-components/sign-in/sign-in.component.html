@@ -1,0 +1,64 @@
+<div class="view">
+  <div class="row remove-margin">
+  <div class="col-lg-4 col-md-3"></div>
+  <div class="col-lg-4 col-md-6">
+    <!-- Material form login -->
+<mdb-card>
+
+    <mdb-card-header class="info-color white-text text-center py-4">
+      <h5>
+        <strong>Đăng Nhập 4.0 LAND</strong>
+      </h5>
+    </mdb-card-header>
+  
+  
+    <!--Card content-->
+    <mdb-card-body class="px-lg-5 pt-0">
+  
+      <!-- Form -->
+      <form [formGroup]="signInForm" (ngSubmit)="login()" class="text-center" style="color: #757575;" >
+  
+          <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+        <!-- Email -->
+        <div class="md-form align-text-left" style="padding-bottom: 20px">
+          <input type="email" id="materialLoginFormEmail" class="form-control" mdbInputDirective formControlName="email" [errorMessage]="'Invalid Email'" [validateSuccess]="false">
+          <label for="materialLoginFormEmail">E-mail</label>
+        </div>
+  
+        <!-- Password -->
+        <div class="md-form align-text-left">
+          <input type="password" id="materialLoginFormPassword" class="form-control" mdbInputDirective formControlName="password" [errorMessage]="'Invalid Password'" [validateSuccess]="false">
+          <label for="materialLoginFormPassword">Mật Khẩu</label>
+        </div>
+  
+        <div class="d-flex justify-content-around">
+          <div>
+            <!-- Remember me -->
+            <mdb-checkbox>Nhớ Tài Khoản</mdb-checkbox>
+          </div>
+          <div>
+            <!-- Forgot password -->
+            <a href="">Quên Mật Khẩu</a>
+          </div>
+        </div>
+  
+        <!-- Sign in button -->
+        <button mdbBtn color="info" [disabled]="signInForm.invalid" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
+          type="submit">Đăng Nhập</button>
+  
+        <!-- Register -->
+        <p>Chưa có tài khoản?
+          <a routerLink="/register">Đăng Kí Ngay</a>
+        </p> 
+        
+      </form>
+      <!-- Form -->
+  
+    </mdb-card-body>
+  
+  </mdb-card>
+  <!-- Material form login -->
+  </div>
+</div>
+</div>
+<app-footer></app-footer>

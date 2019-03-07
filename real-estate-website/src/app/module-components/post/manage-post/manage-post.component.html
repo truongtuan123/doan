@@ -1,0 +1,68 @@
+<div class="view">
+  <div class="row remove-margin">
+    <div class="col-md-12">
+      <table style="text-align: center" mdbTable id="table" class="table table-striped" cellspacing="0" width="100%">
+        <thead>
+          <tr style="background-color: #33B5E5">
+            <th class="th-sm">ID
+            </th>
+            <th class="th-sm">Tiêu Đề
+            </th>
+            <th class="th-sm">Loại Tin
+            </th>
+            <th class="th-sm">Ngày Đăng
+            </th>
+            <th class="th-sm">Quản Lý
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let post of postList" >
+            <td style="width: 100px"><mdb-badge style="font-size: 15px" info="true">{{post._id}}</mdb-badge></td>
+            <td>{{post.title}}</td>
+            <td>{{post.demand}}</td>
+            <td>{{post.createdAt}}</td>
+            <td>
+              <button data-toggle="modal" data-target="#delete" (click)="frame.show()" 
+                mdbBtn type="button" color="danger" rounded="true" mdbWavesEffect><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button mdbBtn type="button" color="indigo" rounded="true" mdbWavesEffect (click)="getPostInfor(post._id)"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
+            </td>
+
+            <div mdbModal #frame="mdbModal" class="modal fade" id="delete" tabindex="-1" role="dialog"
+              aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                  <!--Header-->
+                  <div class="modal-header">
+                    <p class="heading lead">Xác Nhận Xóa</p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                      <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                  </div>
+
+                  <!--Body-->
+                  <div class="modal-body">
+                    <div class="text-center">
+                      <p>Bằng việc bấm vào Comfirm, Ban sẽ xóa bài đăng đã chọn!</p>
+                    </div>
+                  </div>
+
+                  <!--Footer-->
+                  <div class="modal-footer justify-content-center">
+                    <a  (click)="frame.hide()" type="button" mdbBtn color="primary" class="waves-light" mdbWavesEffect>Cancel
+                    </a>
+                    <a (click)="frame.hide()" (click)=deletePost(post._id) type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect (click)="frame.hide()"
+                      data-dismiss="modal">Confirm</a>
+                  </div>
+                </div>
+                <!--/.Content-->
+              </div>
+            </div>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>

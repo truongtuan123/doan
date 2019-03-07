@@ -1,0 +1,156 @@
+<div class="remove-margin">
+  <div class="container pb-3">
+    <form [formGroup]="searchForm" (ngSubmit)="doSearch()" class="text-center border border-light p-5 form-width-change form-align-center">
+
+      <div class="row">
+        <div class="col-md-3">
+          <select formControlName="demand" class="browser-default custom-select mb-2" (change)=onDemandSelected($event)>
+            <option [ngValue]="null">Nhu Cầu</option>
+            <option value="Cần Mua">Tin Mua</option>
+            <option value="Cần Bán">Tin Bán</option>
+            <option value="Dự Án">Tin Dự Án</option>
+          </select>
+        </div>
+        <div *ngIf="isProject" class="col-md-3">
+          <select formControlName="kind" class="browser-default custom-select">
+            <option [ngValue]="null">Loại Dự Án</option>
+            <option value="Căn Hộ Chung Cư">Căn Hộ Chung Cư</option>
+            <option value="Cao Ốc Văn Phòng">Cao Ốc Văn Phòng</option>
+            <option value="Trung Tâm Thương Mại">Trung Tâm Thương Mại</option>
+            <option value="Khu Đô Thị Mới">Khu Đô Thị Mới</option>
+            <option value="Khu Phức Hợp">Khu Phức Hợp</option>
+            <option value="Nhà Ở Xã Hội">Nhà Ở Xã Hội</option>
+            <option value="Khu Nghỉ Dưỡng, Sinh Thái">Khu Nghỉ Dưỡng, Sinh Thái</option>
+            <option value="Khu Công Nghiệp">Khu Công Nghiệp</option>
+            <option value="Biệt Thự Liền Kề">Biệt Thự Liền Kề</option>
+          </select>
+        </div>
+        <div *ngIf="!isProject" class="col-md-3">
+          <select formControlName="kind" class="browser-default custom-select">
+            <option [ngValue]="null">Loại Hình</option>
+            <option value="Căn Hộ Chung Cư">Căn Hộ Chung Cư</option>
+            <option value="Nhà Biệt Thự">Nhà Biệt Thự</option>
+            <option value="Cửa Hàng Kho Xưởng">Cửa Hàng Kho Xưởng</option>
+            <option value="Đất Nền Dự Án">Đất Nền Dự Án</option>
+            <option value="Đất Thổ Cư">Đất Thổ Cư</option>
+            <option value="Đất Vườn">Đất Vườn</option>
+            <option value="Phòng Trọ">Phòng Trọ</option>
+            <option value="Văn Phòng">Văn Phòng</option>
+            <option value="Mặt Bằng Kinh Doanh">Mặt Bằng Kinh Doanh</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <select formControlName="province" class="browser-default custom-select mb-2" (change)=onProvinceSelected($event)>
+            <option [ngValue]="null">Tỉnh/Thành Phố</option>
+            <option *ngFor="let province of listProvince" [value]="province.Id">
+              {{province.Type+' '+province.Name}}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <select formControlName="district" class="browser-default custom-select mb-2">
+            <option [ngValue]="null">Quận/Huyện</option>
+            <option *ngFor="let district of listDistrict" [value]="district.Id">
+              {{district.Type+' '+district.Name}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <!-- Search button -->
+          <button mdbBtn size="md" color="default" block="true" class="my-4 btn-align-center" type="submit">Tìm Kiếm</button>
+
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="container pb-5">
+      <h4 style="text-align: center;font-weight: bold;">
+        <mdb-badge pill="true" default="true"><i class="fa fa-search" aria-hidden="true"></i> Có {{length}} kết quả tìm
+          thấy</mdb-badge>
+  
+  
+      </h4>
+    </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let item of listItem" class="col-lg-4 col-md-6" style="width: auto !important; padding: 0px 20px 50px 20px">
+        <!-- Card -->
+        <mdb-card>
+          <div *ngIf="item._source.thumbnail" class="view rgba-white-slight waves-light" mdbWavesEffect>
+            <!-- Card img -->
+            <mdb-card-img src={{item._source.thumbnail}} alt="Card image cap"></mdb-card-img>
+            <a (click)="goToPostDetail(item._id)">
+              <div class="mask"></div>
+            </a>
+          </div>
+          <div *ngIf="item._source.photos" class="view rgba-white-slight waves-light" mdbWavesEffect>
+            <!-- Card img -->
+            <mdb-card-img src={{item._source.photos[0]}} alt="Card image cap"></mdb-card-img>
+            <a (click)="goToPostDetail(item._id)">
+              <div class="mask"></div>
+            </a>
+          </div>
+          <!--Card content-->
+          <mdb-card-body>
+            <!--Title-->
+            <mdb-card-title>
+              <div class="container">
+                <div class="row" style="margin: 0 auto">
+                  <div class="col-lg-12">
+                    <h5 style="font-weight: bold; text-align: center">
+                      {{item._source.title}}
+                    </h5>
+                  </div>
+                </div>
+                <div class="row" style="padding: 10px">
+                  <div style="text-align: center" class="col-lg-12">
+                    <label>
+                      <mdb-badge default="true">
+                        <i class="fa fa-building-o" aria-hidden="true"></i> </mdb-badge>
+                      Loại Hình: {{item._source.kind}}
+                    </label>
+
+                  </div>
+                  <div style="text-align: center" class="col-lg-12">
+                    <label>
+                      <mdb-badge default="true">
+                        <i class="fa fa-money" aria-hidden="true"></i>
+                      </mdb-badge>
+                      Mức Giá: {{item._source.price}}
+                    </label>
+
+                  </div>
+                  <div style="text-align: center" class="col-lg-12">
+                    <label>
+                      <mdb-badge default="true">
+                        <i class="fa fa-square-o" aria-hidden="true"></i> </mdb-badge>
+                      Diện Tích: {{item._source.square}} m<sup>2</sup>
+                    </label>
+
+                  </div>
+
+                  <div style="text-align: center;padding-top: 10px" class="col-lg-12">
+                    <label>
+                      <mdb-badge default="true">
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                      </mdb-badge>
+                      Địa Chỉ: {{item._source.ward}} - {{item._source.district}} - {{item._source.province}}
+                    </label>
+
+                  </div>
+                </div>
+              </div>
+            </mdb-card-title>
+
+          </mdb-card-body>
+        </mdb-card>
+        <!-- Card -->
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer *ngIf="length"></app-footer>

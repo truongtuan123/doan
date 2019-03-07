@@ -1,0 +1,191 @@
+<div class="view">
+    <div class="row remove-margin">
+        <div class="col-lg-2 col-md-3"></div>
+        <div class="col-lg-8 col-md-6">
+            <!-- Material form login -->
+            <mdb-card>
+
+                <mdb-card-header class="info-color white-text text-center py-4">
+                    <h5>
+                        <strong>Thông Tin Dự Án</strong>
+                    </h5>
+                </mdb-card-header>
+
+
+                <!--Card content-->
+                <mdb-card-body class="px-lg-5 pt-0">
+
+                    <!-- Form -->
+                    <form [formGroup]="postProjectForm" (ngSubmit)="doPostProject()" class="text-center" style="color: #757575;">
+
+                        <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+                        <div class="form-row">
+                            <div class="col-md-12 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="owner" type="text" id="owner" class="form-control"
+                                        mdbInputDirective [errorMessage]="'Required'" [validateSuccess]="false">
+                                    <label for="owner"><i class="fa fa-users" aria-hidden="true"></i> Chủ Đầu Tư</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="name" type="text" id="name" class="form-control"
+                                        mdbInputDirective [errorMessage]="'Required'" [validateSuccess]="false">
+                                    <label for="name"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Tên Dự Án</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="kind" class="browser-default custom-select">
+                                        <option [ngValue]="null">Loại Dự Án</option>
+                                        <option value="Căn Hộ Chung Cư">Căn Hộ Chung Cư</option>
+                                        <option value="Cao Ốc Văn Phòng">Cao Ốc Văn Phòng</option>
+                                        <option value="Trung Tâm Thương Mại">Trung Tâm Thương Mại</option>
+                                        <option value="Khu Đô Thị Mới">Khu Đô Thị Mới</option>
+                                        <option value="Khu Phức Hợp">Khu Phức Hợp</option>
+                                        <option value="Nhà Ở Xã Hội">Nhà Ở Xã Hội</option>
+                                        <option value="Khu Nghỉ Dưỡng, Sinh Thái">Khu Nghỉ Dưỡng, Sinh Thái</option>
+                                        <option value="Khu Công Nghiệp">Khu Công Nghiệp</option>
+                                        <option value="Biệt Thự Liền Kề">Biệt Thự Liền Kề</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="square" type="number" id="square" class="form-control"
+                                        mdbInputDirective [errorMessage]="'Required'" [validateSuccess]="false">
+                                    <label for="square">Tổng Diện Tích(m<sup>2</sup>)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="price" type="number" id="square" class="form-control"
+                                        mdbInputDirective [errorMessage]="'Required'" [validateSuccess]="false">
+                                    <label for="square">Mức Giá(VNĐ)</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="priceUnit" class="browser-default custom-select">
+                                        <option [ngValue]="null">Đơn Vị</option>
+                                        <option value="Căn Hộ">Căn Hộ</option>
+                                        <option value="Tầng">Tầng</option>
+                                        <option value="m2">m<sup>2</sup></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-4 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="province" class="browser-default custom-select" (change)=onProvinceSelected($event)>
+                                        <option [ngValue]="null">Tỉnh/Thành Phố</option>
+                                        <option *ngFor="let province of listProvince" [value]="province.Id">
+                                            {{province.Type+' '+province.Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="district" class="browser-default custom-select" (change)=onDistrictSelected($event)>
+                                        <option [ngValue]="null">Quận/Huyện</option>
+                                        <option *ngFor="let district of listDistrict" [value]="district.Id">
+                                            {{district.Type+' '+district.Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <select formControlName="ward" class="browser-default custom-select">
+                                        <option [ngValue]="null">Phường/Xã</option>
+                                        <option *ngFor="let ward of listWard" [value]="ward.Type+' '+ward.Name">
+                                            {{ward.Type+' '+ward.Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <!-- First name -->
+                                <div class="md-form align-text-left">
+                                    <textarea formControlName="description" type="text" [errorMessage]="'Required'"
+                                        [validateSuccess]="false" id="description" class="md-textarea form-control"
+                                        mdbInputDirective></textarea>
+                                    <label for="description"><i class="fa fa-building-o" aria-hidden="true"></i> Giới
+                                        Thiệu Dự Án</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="representative" type="text" id="representative" class="form-control"
+                                        mdbInputDirective [errorMessage]="'Required'" [validateSuccess]="false">
+                                    <label for="representative"><i class="fa fa-user" aria-hidden="true"></i> Đại Diện</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="representativePhoneNumber" type="tel" id="representativePhoneNumber"
+                                        class="form-control" mdbInputDirective [errorMessage]="'Required'"
+                                        [validateSuccess]="false">
+                                    <label for="representativePhoneNumber"><i class="fa fa-phone-square" aria-hidden="true"></i>
+                                        Số Điện Thoại</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <!-- First name -->
+                                <div class="md-form align-text-left" style="padding-bottom: 10px">
+                                    <input formControlName="representativeEmail" type="email" id="representativeEmail"
+                                        class="form-control" mdbInputDirective [errorMessage]="'Invalid Email'"
+                                        [validateSuccess]="false">
+                                    <label for="representativeEmail"><i class="fa fa-envelope" aria-hidden="true"></i>
+                                        Email</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sign in button -->
+                        <div class="form-row">
+                            <div class="col">
+                                <button mdbBtn color="danger" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0"
+                                    mdbWavesEffect type="button">HỦY</button>
+
+                            </div>
+                            <div class="col">
+                                <button [disabled]="postProjectForm.invalid" mdbBtn color="info" outline="true" rounded="true"
+                                    block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect type="submit">ĐĂNG
+                                    TIN</button>
+                            </div>
+                        </div>
+
+
+                    </form>
+                    <!-- Form -->
+
+                </mdb-card-body>
+
+            </mdb-card>
+            <!-- Material form login -->
+        </div>
+    </div>
+</div>

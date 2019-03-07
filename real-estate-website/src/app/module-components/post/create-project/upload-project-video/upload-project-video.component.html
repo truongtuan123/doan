@@ -1,0 +1,78 @@
+<div class="view">
+  <div class="row remove-margin">
+    <div class="col-lg-3 col-md-3"></div>
+    <div class="col-lg-6 col-md-6">
+      <!-- Material form login -->
+      <mdb-card>
+
+        <mdb-card-header class="info-color white-text text-center py-4">
+          <h5>
+            <strong>Đăng Video Dự Án</strong>
+          </h5>
+        </mdb-card-header>
+
+
+        <!--Card content-->
+        <mdb-card-body class="px-lg-5 pt-0">
+
+          <!-- Form -->
+          <form class="text-center" style="color: #757575;">
+
+            <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+            <!-- Email -->
+            <div class="form-row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-6">
+                <label for="customFile" style="width: 100%" mdbBtn color="indigo" outline="true" rounded="true" block="true"
+                  class="my-4 waves-effect z-depth-0" mdbWavesEffect type="button"><i class="fa fa-camera" aria-hidden="true"></i>
+                  Chọn Video</label>
+                <input ng2FileSelect [uploader]="uploader" accept="video/mp4,video/x-m4v,video/*" style="display: none" type="file" multiple class="custom-file-input"
+                  id="customFile">
+
+              </div>
+            </div>
+            <div *ngIf="uploader?.queue?.length" class="col-xs-12">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th >Name</th>
+                        <th>Size</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of uploader.queue">
+                        <td><strong>{{ item?.file?.name }}</strong></td>
+                        <td *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'1.2-2' }} MB</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="d-flex flex-row justify-content-center flex-wrap">
+                  <div>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item?.progress + '%' }"></div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-success" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                    <span class="fa fa-upload"></span> Upload
+                  </button>
+                  <button type="button" class="btn btn-sm btn-warning" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                    <span class="fa fa-ban"></span> Cancel
+                  </button>
+                  <button type="button" class="btn btn-sm btn-danger" (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                    <span class="fa fa-trash"></span> Remove
+                  </button>
+                </div>
+              </div>
+
+          </form>
+          <!-- Form -->
+
+        </mdb-card-body>
+
+      </mdb-card>
+      <!-- Material form login -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="remove-margin">
+    <div class="container pb-5">
+        <h4 style="text-align: center;font-weight: bold;">
+            <mdb-badge pill="true" default="true"><i class="fa fa-search" aria-hidden="true"></i> Có {{length}} Loại Hình Tin Bán</mdb-badge>
+        </h4>
+    </div>
+    <div class="container">
+      <div class="row">
+          <div *ngFor="let item of list" class="col-lg-4 col-md-6 col-sm-6 col-xs-6" style="width: auto !important; padding-bottom: 20px">
+              <!-- Card -->
+              <mdb-card>
+                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                  <!-- Card img -->
+                  <mdb-card-img src={{item.thumbnail}} alt="Card image cap"></mdb-card-img>
+                  <a (click)="goToPostList(item.kind,item.demand)">
+                    <div class="mask"></div>
+                  </a>
+                </div>
+                <!--Card content-->
+                <mdb-card-body>
+                  <!--Title-->
+                  <mdb-card-title>
+                    <h4 style="text-align: center">{{item.kind}}</h4>
+                  </mdb-card-title>
+        
+                </mdb-card-body>
+              </mdb-card>
+              <!-- Card -->
+            </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

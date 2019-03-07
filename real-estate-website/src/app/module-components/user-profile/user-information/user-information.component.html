@@ -1,0 +1,120 @@
+<!-- Sidebar -->
+<div style="padding-top: 150px;">
+  <div class="list-group list-group-flush">
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Grid row -->
+        <div class="row" style="margin-right: 0px">
+
+          <!--Card Wider-->
+          <div class="card card-cascade wider">
+
+            <!--Card image-->
+            <div class="view view-cascade overlay">
+              <img for="customFile" src={{avatarLink}} class="card-img-top" alt="wider">
+              <a>
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--/Card image-->
+
+            <!--Card content-->
+            <div class="card-body card-body-cascade text-center">
+              <!--Title-->
+              <h4 class="card-title"><strong>{{fullname}}</strong></h4>
+              <h5 *ngIf="isVerified" style="color: #2ecc71"><strong><i class="fa fa-check-circle" aria-hidden="true"></i></strong></h5>
+              <h5 *ngIf="!isVerified" style="color: red"><strong><i class="fa fa-close" aria-hidden="true"></i><br>None Verified</strong></h5>
+
+            </div>
+            <div class="card-body card-body-cascade text-center">
+                <!--Title-->
+                <label for="customFile" style="width: 100%" mdbBtn color="indigo" outline="true" rounded="true" block="true"
+                  class="my-4 waves-effect z-depth-0" mdbWavesEffect type="button"><i class="fa fa-camera" aria-hidden="true"></i>
+                  Đổi Ảnh Đại Diện</label>
+                <input ng2FileSelect [uploader]="uploader" style="display: none" type="file" class="custom-file-input"
+                  id="customFile">
+                <button (click)="uploader.uploadAll()" *ngIf="uploader?.queue?.length" type="button" mdbBtn color="info" mdbWavesEffect>Upload</button>
+              </div>
+            <!--/.Card content-->
+
+          </div>
+          <!--/.Card Wider-->
+
+
+        </div>
+        
+      </div>
+      <div class="col-md-8">
+        <mdb-card>
+
+          <!--Card content-->
+          <mdb-card-body class="px-lg-5 pt-0">
+
+            <!-- Form -->
+            <form class="text-center" style="color: #757575;">
+
+              <div class="form-row">
+                <div class="col">
+                  <!-- First name -->
+                  <div class="md-form align-text-left" style="padding-bottom: 20px">
+                    <label for="materialRegisterFormFirstName"><b><i class="fa fa-user" aria-hidden="true"></i> Họ Tên:</b> {{fullname}}</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <!-- First name -->
+                  <div class="md-form align-text-left" style="padding-bottom: 20px">
+                    <label for="materialRegisterFormFirstName"><b><i class="fa fa-envelope" aria-hidden="true"></i> Email</b>: <mdb-badge style="font-size: 15px" color="red">{{email}}</mdb-badge></label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6">
+                  <!-- First name -->
+                  <div class="md-form align-text-left" style="padding-bottom: 20px">
+                    <label *ngIf="birthday" for="materialRegisterFormFirstName"><b><i class="fa fa-calendar" aria-hidden="true"></i> Ngày Sinh:</b> {{birthday}}</label>
+                    <label *ngIf="!birthday" for="materialRegisterFormFirstName"><b><i class="fa fa-calendar" aria-hidden="true"></i> Ngày Sinh:</b> Chưa Cập Nhật</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <!-- First name -->
+                  <div class="md-form align-text-left" style="padding-bottom: 20px">
+                    <label *ngIf="!gender" for="materialRegisterFormFirstName"><b><i class="fa fa-venus" aria-hidden="true"></i> Giới Tính:</b> Chưa Cập Nhật</label>
+                    <label *ngIf="gender" for="materialRegisterFormFirstName"><b><i class="fa fa-venus" aria-hidden="true"></i> Giới Tính:</b> {{gender}}</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                  <div class="col">
+                    <!-- First name -->
+                    <div class="md-form align-text-left" style="padding-bottom: 20px">
+                      <label *ngIf="phoneNumber" for="materialRegisterFormFirstName"><b><i class="fa fa-phone-square" aria-hidden="true"></i> Số Điện Thoại:</b> {{phoneNumber}}</label>
+                      <label *ngIf="!phoneNumber" for="materialRegisterFormFirstName"><b><i class="fa fa-phone-square" aria-hidden="true"></i> Số Điện Thoại:</b> Chưa Cập Nhật</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                      <!-- First name -->
+                      <div class="md-form align-text-left" style="padding-bottom: 20px">
+                        <label *ngIf="address" for="materialRegisterFormFirstName"><b><i class="fa fa-address-card" aria-hidden="true"></i> Địa Chỉ:</b> {{address}}</label>
+                        <label *ngIf="!address" for="materialRegisterFormFirstName"><b><i class="fa fa-address-card" aria-hidden="true"></i> Địa Chỉ:</b> Chưa Cập Nhật</label>
+                      </div>
+                    </div>
+                  </div>
+
+            </form>
+            <!-- Form -->
+
+          </mdb-card-body>
+
+        </mdb-card>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sidebar -->
+
+
+
