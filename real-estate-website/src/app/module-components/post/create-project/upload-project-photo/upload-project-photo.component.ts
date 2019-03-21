@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 
-const URL = 'http://localhost:3000/post/project/upload/photo';
-const URI = 'http://localhost:3000/';
+const URL = 'https://real-api.azurewebsites.net/post/project/upload/photo';
+const URI = 'https://real-api.azurewebsites.net/';
 
 @Component({
   selector: 'app-upload-project-photo',
@@ -66,7 +66,7 @@ export class UploadProjectPhotoComponent implements OnInit,OnDestroy {
         }
       };
 
-    } 
+    }
   }
 
   ngOnDestroy() {

@@ -8,8 +8,8 @@ import { FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-uplo
 
 // const URLAPP = 'http://192.168.194.2:3000/';
 
-const URL = 'http://localhost:3000/post/sale/upload';
-const URI = 'http://localhost:3000/';
+const URL = 'https://real-api.azurewebsites.net/post/sale/upload';
+const URI = 'https://real-api.azurewebsites.net/';
 
 @Component({
   selector: 'app-upload-photo',

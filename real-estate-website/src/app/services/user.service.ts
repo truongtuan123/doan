@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
- 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,8 +17,8 @@ export class UserService {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
   }
 
-  private API_URI = 'http://localhost:3000/';
-  
+  private API_URI = 'https://real-api.azurewebsites.net/';
+
   //Login
   private loginAPI = this.API_URI+'login';
   login(email, password): Observable<any> {

@@ -65,6 +65,7 @@ export class ListItemComponent implements OnInit {
           this.searchService.getItemProjectList(this.kind).subscribe(res =>{
             if (res.message == 'Found') {
               this.listItem = res.listItem;
+              console.log(this.listItem)
               this.length = this.listItem.length;
             } else {
               this.length = 0;
@@ -72,7 +73,7 @@ export class ListItemComponent implements OnInit {
           })
         }
       }
-    } 
+    }
   }
 
   goToPostDetail(postId){

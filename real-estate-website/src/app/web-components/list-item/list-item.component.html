@@ -2,23 +2,23 @@
   <div class="container pb-5">
     <h4 style="text-align: center;font-weight: bold;">
         <mdb-badge pill="true" default="true"><i class="fa fa-search" aria-hidden="true"></i> Có {{length}} tin đăng {{demand}}</mdb-badge>
-        
-        
+
+
     </h4>
     <h4 style="text-align: center;font-weight: bold;">
         <mdb-badge info="true"><i class="fa fa-building-o" aria-hidden="true"></i></mdb-badge>
-        
+
         {{kind}}
     </h4>
   </div>
   <div class="container-fluid">
     <div class="row">
-      <div *ngFor="let item of listItem" class="col-lg-4 col-md-6" style="width: auto !important; padding: 0px 20px 50px 20px">
+      <div *ngFor="let item of listItem" class="col-lg-4 col-md-6" style="width: auto !important; padding: 0px 20px 50px 20px;">
         <!-- Card -->
         <mdb-card>
           <div *ngIf="!isBuyItem" class="view rgba-white-slight waves-light" mdbWavesEffect>
             <!-- Card img -->
-            <mdb-card-img src={{item.photos[0]}} alt="Card image cap"></mdb-card-img>
+            <mdb-card-img  src={{item.photos[0]}} alt="Card image cap"></mdb-card-img>
             <a (click)="goToPostDetail(item._id)">
               <div class="mask"></div>
             </a>
@@ -49,7 +49,7 @@
                               <i class="fa fa-building-o" aria-hidden="true"></i> </mdb-badge>
                           Loại Hình: {{item.kind}}
                         </label>
-    
+
                       </div>
                   <div style="text-align: center" class="col-lg-12">
                     <label>
@@ -68,7 +68,7 @@
                     </label>
 
                   </div>
-                  
+
                   <div style="text-align: center;padding-top: 10px" class="col-lg-12">
                     <label>
                       <mdb-badge default="true">
@@ -86,7 +86,7 @@
         </mdb-card>
         <!-- Card -->
       </div>
-      
+
     </div>
   </div>
 </div>

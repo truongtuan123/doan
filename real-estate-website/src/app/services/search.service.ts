@@ -17,8 +17,8 @@ export class SearchService {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
   }
 
-  private API_URI = 'http://localhost:3000/';
-  
+  private API_URI = 'https://real-api.azurewebsites.net/';
+
 
     //Get Category Buy
     private getListCategoryBuyAPI = this.API_URI+'category/buy';
@@ -67,5 +67,5 @@ export class SearchService {
       }
       return this.httpClient.post<any>(this.searchByKeywordtAPI,data, this.httpOption);
     }
-  
+
 }

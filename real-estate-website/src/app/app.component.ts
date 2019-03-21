@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
       }
       $('html, body').animate({ scrollTop: 0 }, 300);
 
-    });    
+    });
   }
   title = 'real-estate-website';
 }

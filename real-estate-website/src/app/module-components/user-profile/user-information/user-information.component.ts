@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import { AlertService } from '../../../services/alert.service';
 
-const URL = 'http://localhost:3000/user/update/avatar';
-const URI = 'http://localhost:3000/';
+const URL = 'https://real-api.azurewebsites.net/user/update/avatar';
+const URI = 'https://real-api.azurewebsites.net/';
 @Component({
   selector: 'app-user-information',
   templateUrl: './user-information.component.html',
@@ -48,7 +48,7 @@ export class UserInformationComponent implements OnInit {
     });
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-        
+
         var link = URI+response.replace(/"/g,'');
         //console.log(link)
         try {
@@ -85,7 +85,7 @@ export class UserInformationComponent implements OnInit {
             return this.isVerified;
           }
         }
-        
+
       });
     } else {
       this.router.navigate(['/login'])

@@ -12,10 +12,10 @@
                             Tìm Kiếm Bất Động Sản
                         </mdb-badge>
                     </h2>
-                      <form [formGroup]="searchForm" (ngSubmit)="goToResult()" class="text-center border border-light p-5 form-width-change form-align-center">                    
-                        
+                      <form [formGroup]="searchForm" (ngSubmit)="goToResult()" class="text-center border border-light p-5 form-width-change form-align-center">
+
                           <div class="row">
-                            <div class="col-md-6">   
+                            <div class="col-md-6">
                                 <select formControlName="demand" class="browser-default custom-select mb-2" (change)=onDemandSelected($event)>
                                     <option [ngValue]="null">Nhu Cầu</option>
                                     <option value="Cần Mua">Tin Mua</option>
@@ -23,7 +23,7 @@
                                     <option value="Dự Án">Tin Dự Án</option>
                                 </select>
                             </div>
-                            <div *ngIf="isProject" class="col-md-6">   
+                            <div *ngIf="isProject" class="col-md-6">
                                 <select formControlName="kind" class="browser-default custom-select">
                                     <option [ngValue]="null">Loại Dự Án</option>
                                     <option value="Căn Hộ Chung Cư">Căn Hộ Chung Cư</option>
@@ -37,7 +37,7 @@
                                     <option value="Biệt Thự Liền Kề">Biệt Thự Liền Kề</option>
                                 </select>
                             </div>
-                            <div *ngIf="!isProject" class="col-md-6">   
+                            <div *ngIf="!isProject" class="col-md-6">
                                 <select formControlName="kind" class="browser-default custom-select">
                                     <option [ngValue]="null">Loại Hình</option>
                                     <option value="Căn Hộ Chung Cư">Căn Hộ Chung Cư</option>
@@ -77,12 +77,12 @@
                                             </option>
                                     </select>
                                 </div> -->
-                              </div>     
-              
+                              </div>
+
                         <!-- Search button -->
                         <button mdbBtn size="md" color="default" block="true" class="my-4 btn-align-center" type="submit">Tìm Kiếm</button>
                       </form>
-                        
+
                         <!-- Default form -->
                   </div>
               </div>
@@ -90,21 +90,4 @@
       </div>
   </div>
     <!-- /.Main -->
-
-<!--Main Layout-->
-<main class="text-center py-5">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-  
-                <p align="justify">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  
-            </div>
-        </div>
-    </div>
-  
-  </main>
-  <!--Main Layout-->
-
   <app-footer></app-footer>

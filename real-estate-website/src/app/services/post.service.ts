@@ -21,8 +21,8 @@ export class PostService {
     headers: new HttpHeaders({'Content-Type' : 'multipart/form-data'})
   }
 
-  private API_URI = 'http://localhost:3000/';
-  
+  private API_URI = 'https://real-api.azurewebsites.net/';
+
 
   //Get List Province
   private getListProvinceAPI = this.API_URI+'province/list';
